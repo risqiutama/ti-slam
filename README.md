@@ -1,2 +1,2 @@
-# ti-slam
-Thermal-inertial SLAM
+# Ti-SLAM
+A repository for Thermal-inertial SLAM.
