@@ -9,7 +9,7 @@ Muhamad Risqi U. Saputra, Chris Xiaoxuan Lu, Pedro P. B. de Gusmao, Bing Wang, A
 
 PS: At the moment, the implementation requires both python and matlab code. We will provide all python versions in the near future.
 
-<p align="center"> <img src="https://github.com/risqiutama/ti-slam_prepare/blob/main/ti-slam_arch.png" width="100%"> </p>
+<p align="center"> <img src="https://github.com/risqiutama/ti-slam/blob/main/ti-slam_arch.png" width="100%"> </p>
 
 ## Dependencies (Python)
 - Docker
