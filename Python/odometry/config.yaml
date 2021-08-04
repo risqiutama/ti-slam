@@ -1,0 +1,180 @@
+# Set 1
+nn_opt:
+    tio_prob_params:
+        nn_name: neural_odometry_v2
+        imu_length: 20
+        lr_rate: 0.0001
+        rho: 0.9
+        epsilon: 1e-08
+        decay: 0.0
+        fc_trans: 1
+        fc_rot: 1
+        flatten_rgb: 0
+        n_mixture: 10
+    loop_params:
+        nn_name: neural_loop_closure_v2
+        img_h: 512
+        img_w: 640
+        img_c: 1
+        epoch: 201
+        batch_size: 8
+        lr_rate: 0.001
+        rho: 0.9
+        epsilon: 1e-08
+        decay: 0.0
+        fc_trans: 1
+        fc_rot: 1
+
+# Set 2
+os_odom_test:
+    model: neural_odometry # neural_loop_closure
+    dataset: turtle # turtle (robot), handheld
+    saved_dir_h5: '/root/workspace/datasets/MilliVO/h5_thermal_rgb_large' # Replace with your data directory (respective odometry folder)
+    gap: 5
+    imu_length: 20
+    n_mixture: 10
+    test_dir: val
+
+# Set 3
+training_opt:
+    dataset: turtle
+    data_dir: '/root/workspace/datasets/MilliVO/h5_thermal_rgb_large' # Replace with your data directory (odometry folder)
+    rgb_feature_dir: '/root/workspace/datasets/MilliVO/h5_hallucination_features_small' # Replace with your data directory (RGB Feature folder)
+    base_model_name: neural_odometry
+    is_first_stage: 0 # False (0) or True (1), 1st stage to train hallucination. 2nd stage trains remaining.
+
+# Set 4
+train_loop_pose_opt:
+    dataset: turtle # handheld
+
+# Set 5
+loop_robot_data:
+    dataroot: '/root/workspace/public/thermal_robot'
+    loop_path: '/root/workspace/datasets/thermal_robot/loop'
+    total_training: 14
+    all_exp_files:
+        - 2019-10-24-18-22-33
+        - 2019-10-24-18-08-33
+        - 2019-10-24-18-24-40
+        - 2019-10-24-18-21-18
+        - 2019-10-24-18-16-24
+        - 2019-10-24-18-13-21
+        - 2019-10-24-18-11-06
+        - 2019-10-24-18-05-22
+        - 2019-10-24-18-03-57
+        - 2019-10-24-17-58-56
+        - 2019-10-24-17-57-46
+        - 2019-10-24-17-56-33
+        - 2019-10-24-18-18-47
+        - 2019-11-04-20-29-51
+        - 2019-10-24-18-22-33 # test
+        - 2019-11-23-15-54-25
+        - 2019-11-23-15-52-53
+        - 2019-11-23-15-59-12
+        - 2019-11-04-20-29-51
+        - 2019-11-22-10-22-48
+        - 2019-11-22-10-26-42
+        - 2019-11-22-10-34-57
+        - 2019-11-22-10-37-42
+        - 2019-11-22-10-38-47
+        - 2019-11-28-15-40-10
+        - 2019-11-22-10-14-01
+        - 2019-11-22-10-10-00
+
+- 2019-10-24-18-22-33 # test robot only include loop
+        - 2019-11-23-15-54-25
+        - 2019-11-23-15-52-53
+        - 2019-11-23-15-59-12
+        - 2019-11-04-20-29-51
+        - 2019-11-22-10-22-48
+        - 2019-11-22-10-26-42
+        - 2019-11-22-10-34-57
+        - 2019-11-22-10-37-42
+        - 2019-11-22-10-38-47
+        - 2019-11-28-15-40-10
+        - 2019-11-04-20-38-57
+
+# Set 6
+loop_handheld_data:
+    dataroot: '/root/workspace/public/handheld'
+    loop_path: '/root/workspace/datasets/thermal_handheld/loop'
+    total_training: 33
+    all_exp_files:
+          - 2020-01-28-11-10-12 # 0
+          - 2020-01-28-11-15-11
+          - 2020-01-28-11-20-29
+          - 2020-01-28-11-24-40
+          - 2020-01-28-11-36-12
+          - 2020-01-28-11-38-18
+          - 2020-01-28-11-43-26
+          - 2020-01-28-11-45-44
+          - 2020-01-28-11-47-09
+#          - 2020-01-28-11-48-44
+          - 2020-01-28-11-50-54 # 10
+          - 2020-01-28-11-53-26
+          - 2020-01-28-11-57-59
+          - 2020-01-28-11-59-42
+          - 2020-01-29-17-49-34
+          - 2020-02-06-15-03-24 # 15,
+          - 2020-02-06-15-07-25 #
+          - 2020-02-06-15-24-24 #
+          - 2020-02-06-15-29-15
+          - 2020-02-06-15-48-35 #
+          - 2020-02-06-15-58-41 # 20
+          - 2020-02-06-16-04-15 #
+          - 2020-02-06-16-15-45 #
+          - 2020-02-06-16-21-04 #
+          - 2020-02-07-16-09-47 #
+          - 2020-02-07-16-25-22
+          - 2020-02-07-16-31-44
+          - 2020-02-07-16-36-31
+          - 2020-02-07-16-41-08
+          - 2020-02-07-16-46-50 #
+          - 2020-02-07-17-00-15 # 30
+          - 2020-02-07-17-04-08
+          - 2020-02-07-17-08-21
+          - 2020-02-07-17-11-56 # Training limit
+          - 2020-01-28-11-28-50 # 34
+          - 2020-01-28-11-34-05 # 35
+          - 2020-01-28-11-39-07
+          - 2020-01-28-11-55-54
+          - 2020-01-28-12-01-24 # 38
+          - 2020-02-06-15-35-57 # 39,
+          - 2020-02-06-16-09-40 # 40, 3D
+          - 2020-02-07-15-57-43 # 41
+          - 2020-02-07-17-01-24 # 42
+          - 2020-02-06-15-15-32 # 43
+          - 2020-01-28-11-50-54
+
+# Set 7
+loop_evaluation_opt:
+    dataroot: '/root/workspace/public/thermal_robot'
+    loop_pairs_path: 'results/'
+    loop_detection_network: 'neural_embedding'
+    loop_threshold: 0.045
+    model_name: neural_loop_closure
+    exp_files:
+        - 2019-10-24-18-22-33 # test robot only include loop
+        - 2019-11-23-15-54-25
+        - 2019-11-23-15-52-53
+        - 2019-11-23-15-59-12
+        - 2019-11-04-20-29-51
+        - 2019-11-22-10-22-48
+        - 2019-11-22-10-26-42
+        - 2019-11-22-10-34-57
+        - 2019-11-22-10-37-42
+        - 2019-11-22-10-38-47
+        - 2019-11-28-15-40-10
+        - 2019-11-04-20-38-57
+
+#        - 2020-01-28-11-28-50 # 34 # test hand-held
+#        - 2020-01-28-11-34-05 # 35
+#        - 2020-01-28-11-39-07
+#        - 2020-01-28-11-55-54
+#        - 2020-01-28-12-01-24 # 38
+#        - 2020-02-06-15-35-57 # 39,
+#        - 2020-02-06-16-09-40 # 40, 3D
+#        - 2020-02-07-15-57-43 # 41
+#        - 2020-02-07-17-01-24 # 42
+#        - 2020-02-06-15-15-32 # 43
+#        - 2020-01-28-11-50-54
