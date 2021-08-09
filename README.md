@@ -28,6 +28,7 @@ PS: At the moment, the implementation requires both python and matlab code. We w
 - Please download our dataset from [here](https://docs.google.com/forms/d/e/1FAIpQLSfdJBh5VUiIdvwQGhgInAlHzcmmOCnbvNqS_iHyo0KUDPBsaQ/viewform?usp=sf_link).
 
 - After downloading, please put the dataset into your `<host dataset dir path>` in your host machine.
+- Some files are zipped into a single zip file (e.g., loop.zip and all raw data in raw folder). For training, please unzip them all in the same directory. 
 
 ### Docker Installation
 
